@@ -11,6 +11,12 @@ body {
     flex: 1 0 auto;
 }
 
+.jumbotron {
+    background:linear-gradient(skyblue, greenyellow);
+    color: white;
+    margin-top: 10px;
+}
+
 .footer {
     background: black;
     color: white;
