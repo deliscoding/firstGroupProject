@@ -17,6 +17,10 @@ body {
     margin-top: 10px;
 }
 
+#title {
+    Border:1px solid black;
+}
+
 iframe {
     float: right;
 }
