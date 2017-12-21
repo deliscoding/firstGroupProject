@@ -13,8 +13,16 @@ body {
 
 .jumbotron {
     background:linear-gradient(skyblue, greenyellow);
-    color: white;
+    color: black;
     margin-top: 10px;
+}
+
+#title {
+    Border:1px solid black;
+}
+
+iframe {
+    float: right;
 }
 
 .footer {
