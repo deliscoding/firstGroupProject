@@ -15,14 +15,23 @@ body {
     background:linear-gradient(skyblue, greenyellow);
     color: black;
     margin-top: 10px;
+    margin-bottom: 5px;
+    height: 200px;
+    padding: 10px;
+}
+
+.btn {
+    margin-bottom: 10px;
+}
+
+.white-text {
+    font-size: 16px;
 }
 
 #title {
-    Border:1px solid black;
 }
 
 iframe {
-    float: right;
 }
 
 .footer {
