@@ -20,6 +20,10 @@ h3 {
     margin-left: 20px;
 }
 
+p {
+    line-height: 20px;
+}
+
 .btn {
     margin-bottom: 10px;
 }
