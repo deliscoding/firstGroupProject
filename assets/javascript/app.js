@@ -35,7 +35,7 @@ $.ajax({
         $("#questions").append('<p> Category: ' + results[i].category + '</p>');
         $("#questions").append('<p> Question: ' + results[i].question + '</p>');
         $("#questions").append('<p> A: ' + results[i].correct_answer + '</p>');
-
+        $("#questions").append('<br>');
         // incorrectAnswer = results[i].incorrectAnswers[x]
         // console.log(incorrectAnswer)
 
