@@ -29,7 +29,7 @@ h3 {
 }
 
 #title {
-    background: lightgreen;
+    background: linear-gradient(lightgreen, skyblue);
     padding: 10px;
 }
 
