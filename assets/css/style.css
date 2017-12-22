@@ -11,15 +11,6 @@ body {
     flex: 1 0 auto;
 }
 
-.jumbotron {
-    background:linear-gradient(skyblue, greenyellow);
-    color: black;
-    margin-top: 10px;
-    margin-bottom: 5px;
-    height: 200px;
-    padding: 10px;
-}
-
 .btn {
     margin-bottom: 10px;
 }
@@ -29,9 +20,12 @@ body {
 }
 
 #title {
+    background: lightgreen;
+    padding: 10px;
 }
 
 iframe {
+    border: 1px black solid;
 }
 
 .footer {
