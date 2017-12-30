@@ -1,17 +1,39 @@
 // LET'S GET WEIRD
 
-// Initialize Firebase
+// Initialize OTHER Firebase
+//var config = {
+//     apiKey: "AIzaSyAeAwiIUQprC7KrQhVym-xOkQgz1iHYeUE",
+//     authDomain: "guzzpuzz-9e5f3.firebaseapp.com",
+//     databaseURL: "https://guzzpuzz-9e5f3.firebaseio.com",
+//     projectId: "guzzpuzz-9e5f3",
+//     storageBucket: "",
+//     messagingSenderId: "108877913352"
+// };
+// Initialize Jason's Firebase
 var config = {
-    apiKey: "AIzaSyAeAwiIUQprC7KrQhVym-xOkQgz1iHYeUE",
-    authDomain: "guzzpuzz-9e5f3.firebaseapp.com",
-    databaseURL: "https://guzzpuzz-9e5f3.firebaseio.com",
-    projectId: "guzzpuzz-9e5f3",
-    storageBucket: "",
-    messagingSenderId: "108877913352"
-};
-firebase.initializeApp(config);
+    apiKey: "AIzaSyDywo8of7_TlZKH_SlysnkRIJlyHSBUds0",
+    authDomain: "guzzle-puzzle.firebaseapp.com",
+    databaseURL: "https://guzzle-puzzle.firebaseio.com",
+    projectId: "guzzle-puzzle",
+    storageBucket: "guzzle-puzzle.appspot.com",
+    messagingSenderId: "355498500330"
+  };
+  firebase.initializeApp(config);
+  firebase.auth().signInAnonymously().catch(function(error) {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    if (errorCode === 'auth/operation-not-allowed') {
+        alert('You must enable Anonymous auth in the Firebase Console.');
+    } else {
+        console.error(error);
+    }
+    });
 
 var database = firebase.database();
+
+function logOut();
+    firebase.auth().signOut();
+    $(#quit).on("click", function(logOut));
 
 // Pulls Trivia Database API
 var queryURL = "https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple";
@@ -67,7 +89,7 @@ $("#submit").on("click", function (event) {
     }
 
     // push guzzPuzz to firebase
-    database.ref().set(guzzPuzz);
+    database.ref(users).set(guzzPuzz);
 
     // request snap of firebase
     database.ref().on("value", function (snap) {
