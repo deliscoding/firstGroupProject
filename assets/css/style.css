@@ -4,6 +4,7 @@ html, body {
 
 body {
     display: flex;
+    min-height: 100vh;
     flex-direction: column;
     background-image: url("../images/bar.jpg");
     background-size: cover;
@@ -28,16 +29,16 @@ h3 {
     font-size: 30px;
 }
 
+main {
+    flex: 1 0 auto;
+  }
+
 p{
     padding-left: 30px;
 }
 
 .btn {
     background-color: black;
-}
-
-.container {
-    flex: 1 0 auto;
 }
 
 #questions {

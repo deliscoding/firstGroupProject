@@ -13,7 +13,7 @@
     <!-- jQuery CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <!-- moment.js CDN -->
+    <!-- Moment.js CDN -->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
     <!-- Firebase CDN -->
@@ -28,37 +28,42 @@
 
     <!-- Link style.css -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
 
 </head>
 
 <body>
-
-    <div class="container">
-
+    <!-- Materialize asks that you split the page between -->
+    <!-- header, main and footer -->
+    <!-- Container to enclose content -->
+    <header>
         <div class="row">
             <div id="title" class="z-depth-3">
                 <h1>GuzzlePuzzle</h1>
                 <p>Your future depends on it...</p>
             </div>
-            <br>
-            <!-- Trivia Questions can go here... for now. -->
-            <div class="row">
-                <div id="questions">
+    </header>
 
-                </div>
+    <main>
+        <!-- Trivia Questions can go here... for now. -->
+        <div class="row">
+            <div id="questions">
+
             </div>
+        </div>
         </div>
         <a href="captcha.html" class="btn btn-large waves-effect waves-light blue">
             <i class="material-icons">Captcha</i>
         </a>
+    </main>
 
-        <script src="assets/javascript/app.js"></script>
+    <script src="assets/javascript/app.js"></script>
 
-        <!-- Default Footer -->
-        <footer class="footer">
-            &copy; Copyright 2017 Slackers
-        </footer>
-
+    <!-- Default Footer -->
+    <footer class="footer">
+        &copy; Copyright 2017 Slackers
+    </footer>
 
 </body>
 
