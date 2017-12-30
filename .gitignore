@@ -1,0 +1,8 @@
+# Object file
+.o
+
+# DS Store
+.DS_Store
+
+# VS Code
+.vscode
