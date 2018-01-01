@@ -22,18 +22,23 @@ var config = {
   firebase.auth().signInAnonymously().catch(function(error) {
     var errorCode = error.code;
     var errorMessage = error.message;
-    if (errorCode === 'auth/operation-not-allowed') {
-        alert('You must enable Anonymous auth in the Firebase Console.');
-    } else {
         console.error(error);
-    }
-    });
-
+    })
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user)   {    
+    var uid = user.uid;
+        console.log(uid);
+    localStorage.setItem("gpfuid", uid)
+    }});
+    
 var database = firebase.database();
+//var fuid = localStorage.getItem("gpfuid");
+var fuid = firebase.auth().currentUser.uid;
 
-function logOut();
-    firebase.auth().signOut();
-    $(#quit).on("click", function(logOut));
+
+// function logOut();
+//     firebase.auth().signOut();
+//     $(#quit).on("click", function(logOut));
 
 // Pulls Trivia Database API
 var queryURL = "https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple";
@@ -89,7 +94,7 @@ $("#submit").on("click", function (event) {
     }
 
     // push guzzPuzz to firebase
-    database.ref(users).set(guzzPuzz);
+    database.ref().child("users/" + fuid).set(guzzPuzz);
 
     // request snap of firebase
     database.ref().on("value", function (snap) {
@@ -118,7 +123,8 @@ $("#reSubmit").on("click", function (event) {
     }
 
     // push guzzPuzz to firebase
-    database.ref().set(verify);
+    database.ref().child("users/" + fuid).set(verify);
+    // database.ref().set(verify);
 
     // request snap of firebase
     database.ref().on("value", function (snap) {
@@ -142,5 +148,3 @@ $("#reSubmit").on("click", function (event) {
     })
 
 })
-
-
