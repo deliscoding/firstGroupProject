@@ -131,7 +131,7 @@ function initMap() {
 
     searchResults.push(marker);
     google.maps.event.addListener(marker, 'click', function(){
-      windowContent = "<h5>"+this.title+"</h5>"+"<p>"+"Rating: "+"<strong>"+this.rating+"</strong>"+" / 5"+"</p>";
+      windowContent = "<h5>"+this.title+"</h5>"+"<p>"+"Rating: "+"<strong>"+this.rating+"</strong>"+" / 5"+"</p>"+"<p>"+this.address+"</p>";
       calcRoute(this.position);
       infoWindow.setContent(windowContent);
       infoWindow.open(map, this);
