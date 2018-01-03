@@ -85,3 +85,11 @@ iframe {
     width: 100%;
     padding: 15px;
 }
+
+#map {
+    height: 400px;
+  }
+
+#list a {
+    display: block;
+}
