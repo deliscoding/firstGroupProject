@@ -37,6 +37,20 @@ h3 {
     font-size: 20px;
 }
 
+#desc {
+    font-size: 12px;
+    color: black;
+    line-height: 30px;
+    text-align: justify;
+    background: linear-gradient(rgba(200, 130, 130, 0.7), rgba(202, 152, 108, 0.7));
+    padding: 10px;
+    border: solid 2px black;
+    border-radius: 25px;
+    margin-left: 10px;
+    font-style: italic;
+
+}
+
 main {
     flex: 1 0 auto;
   }
