@@ -45,6 +45,7 @@ p{
     padding-left: 30px;
     color: white;
     background-color: black;
+    line-height: 20px;
 }
 
 .btn {
@@ -53,10 +54,6 @@ p{
 
 #questions {
     margin-left: 20px;
-}
-
-p {
-    line-height: 20px;
 }
 
 .btn {
@@ -79,9 +76,17 @@ p {
     padding: 10px;
 }
 
+.card {
+    background: black;
+}
+
 .card-image {
     width: 100px;
     height: auto;
+}
+
+.card-content {
+    color: white;
 }
 
 iframe {
