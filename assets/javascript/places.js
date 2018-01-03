@@ -1,7 +1,7 @@
 var script = $('<script>')
   .attr('src', "https://maps.googleapis.com/maps/api/js?key=AIzaSyALcSlmfH1nlwlbe7YGvb0SQu7mn_f2i2s&libraries=places&callback=initMap")
   .attr('async','').attr('defer','');
-script.appendTo($('body'));
+  script.appendTo($('body'));
 
 // Declaring global variable
 var infoWindow = null;
@@ -30,7 +30,7 @@ function initMap() {
 
   infoWindow = new google.maps.InfoWindow({content: "Holding..."});
 
-  // Try to locate user via HTML5 geolocation.
+  // Try using HTML5 geolocation
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       var pos = {
@@ -47,12 +47,11 @@ function initMap() {
       var marker = new google.maps.Marker({
         position: pos,
         map: map,
-        //icon: ""
       });
 
       var request = {
         location: pos,
-        radius: '500',
+        radius: '2000',
         types: ['bar']
       };
 
@@ -69,7 +68,7 @@ function initMap() {
 
   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
-    infoWindow.setContent(browserHasGeolocation ? 'Error: The geolocation service has failed.' : 'Error: Your browser doesn\'t support geolocation.');
+    infoWindow.setContent(browserHasGeolocation ? 'Error: The Geolocation service failed.' : 'Error: Your browser doesn\'t support geolocation.');
   }
 
   function showDirections(place) {
@@ -95,14 +94,14 @@ function initMap() {
   function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
 
-      // Filters results to only display locations with minimum (default: 3)
-      results = results.filter(function(result){
-        return result.rating > lowestRating;
-      });
+      // // Filter - only keep ratings above lowestRating (default: 4)
+      // results = results.filter(function(result){
+      //   return result.rating > lowestRating;
+      // });
 
-      results = results.sort(function(a,b){
-        return b.rating - a.rating;
-      });
+      // results = results.sort(function(a,b){
+      //   return b.rating - a.rating;
+      // });
 
       // for each place in result, create an <a> tag and a marker.
       results.forEach(function(place, i){
