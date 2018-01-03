@@ -16,7 +16,7 @@ body {
     margin: 20px;
 }
 
-h1, h3, p {
+h1, h3 {
     color: rgb(219, 171, 176);
     text-shadow: 4px 4px 5px rgb(0, 0, 0);
 }
@@ -34,7 +34,7 @@ h1 {
 h3 {
     font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif; 
     padding-left: 10px;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 main {
@@ -43,6 +43,8 @@ main {
 
 p{
     padding-left: 30px;
+    color: white;
+    background-color: black;
 }
 
 .btn {
