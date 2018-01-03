@@ -43,7 +43,7 @@
         <header>
             <div id="title" class="z-depth-3">
                 <h1>Guzzle Puzzle</h1>
-                <p>Your future depends on it...</p>
+                <h3>Your future depends on it...</h3>
             </div>
         </header>
 
@@ -51,49 +51,45 @@
             <div class="row">
                 <div id="heading" class="col s6">
                     <h3>An app for responsible drinking.</h3>
-                    <a href="trivia.html" class="btn btn-large waves-effect waves-red waves-ripple">
+                    <a href="bar_page.html" class="btn btn-large waves-effect waves-red waves-ripple">
                         <i class="fa fa-puzzle-piece"> Start</i>
                     </a>
-                </div>
-
-                <div class="row">
-                    <div class="col s7">
-
-                    </div>
-
-                    <div class="col s5">
-                        <form id="bar-form" onsubmit="return false">
-                            <label for="bar-input">search bar here</label>
-                            <input type="text" id="car-input">
-                            <input id="addBar" type="submit" value="Submit">
-                        </form>
+                    <br><br>
+                    <div id="desc" class="row">
+                        Guzzle Puzzle was designed to support
+                    responsible driving. If you are
+                    intending to go drinking, please
+                    consider using our trivia to help you
+                    decide if you are at risk of driving under the influence.
                     </div>
                 </div>
-                <br>
-                <br>
 
-                <div class="row">
-                    <div class="col s12">
-                        <div id="barResults">
-                            <div id="map" style="width: 400px; height: 400px; float:right;"></div>
 
-                        </div>
+                <div class="col s6">
+                    <div id="barResults">
+                        <div id="map" style="width: 400px; height: 400px; float:right;"></div>
+
                     </div>
-
                 </div>
+
+
             </div>
+        </main>
+    </div>
 
 
-            <!-- Google Maps -->
-            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBM39ueFLAr8hJJxvSZVkuO0CBWQjqqctE&callback=initMap"></script>
+    <!-- Google Maps -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBM39ueFLAr8hJJxvSZVkuO0CBWQjqqctE&callback=initMap"></script>
 
+    <script src="assets/javascript/maps.js"></script>
 
-            <script src="assets/javascript/maps.js"></script>
-
-            <!-- Default Footer -->
-            <footer class="footer">
-                &copy; Copyright 2017 Slackers
-            </footer>
+    <!-- Default Footer -->
+    <footer class="footer">
+        &copy; Copyright 2017 Slackers
+        <audio controls autoplay>
+            <source src="assets/music/bartender.mp3" type="audio/mp3">
+        </audio>
+    </footer>
 
 </body>
 
