@@ -62,7 +62,7 @@ function initMap() {
       handleLocationError(true, infoWindow, map.getCenter());
     });
   } else {
-    // Browser doesn't support Geolocation
+    // If browser doesn't support Geolocation
     handleLocationError(false, infoWindow, map.getCenter());
   }
 
@@ -71,13 +71,13 @@ function initMap() {
     infoWindow.setContent(browserHasGeolocation ? 'Error: The Geolocation service failed.' : 'Error: Your browser doesn\'t support geolocation.');
   }
 
+  // Clicking on bar icon or list name shows directions from geolocation to destination bar
   function showDirections(place) {
-    // console.log(this);
     index = this.dataset.index;
-    // console.log(searchResults[index].position);
     google.maps.event.trigger(searchResults[index], 'click');
   }
 
+  // Calculate walking directions from geolocation to destination bar
   function calcRoute(dest) {
     var request = {
       origin: myPosition,
@@ -94,16 +94,16 @@ function initMap() {
   function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
 
-      // // Filter - only keep ratings above lowestRating (default: 4)
-      // results = results.filter(function(result){
-      //   return result.rating > lowestRating;
-      // });
+      // Filter result bars to keep only those with rating of 2 or higher
+      results = results.filter(function(result){
+        return result.rating > lowestRating;
+      });
 
-      // results = results.sort(function(a,b){
-      //   return b.rating - a.rating;
-      // });
+      results = results.sort(function(a,b){
+        return b.rating - a.rating;
+      });
 
-      // for each place in result, create an <a> tag and a marker.
+      // Create tag and a marker for each destination item
       results.forEach(function(place, i){
         var element = document.createElement("a");
         element.setAttribute('href', '#');
@@ -119,6 +119,7 @@ function initMap() {
     }
   }
 
+  // Create marker on map for each bar found in nearby search that fit criteria above (rating 2+)
   function createMarker (place) {
     var marker = new google.maps.Marker({
       position: place.geometry.location,
@@ -129,9 +130,10 @@ function initMap() {
       address: place.vicinity
     });
 
+    // When each marker is clicked InfoWindow pops up to show destination details
     searchResults.push(marker);
     google.maps.event.addListener(marker, 'click', function(){
-      windowContent = "<h5>"+this.title+"</h5>"+"<p>"+"Rating: "+"<strong>"+this.rating+"</strong>"+" / 5"+"</p>"+"<p>"+this.address+"</p>";
+      windowContent = "<h5>"+this.title+"</h5>"+"<h6>"+"Rating: "+"<strong>"+this.rating+"</strong>"+" / 5"+"</h6>"+"<h6>"+this.address+"</h6>";
       calcRoute(this.position);
       infoWindow.setContent(windowContent);
       infoWindow.open(map, this);
