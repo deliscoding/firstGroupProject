@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>jetBetter</title>
+    <title>GuzzPuzz</title>
 
     <!-- Reset.css -->
     <link rel="stylesheet" href="assets/css/reset.css">
@@ -13,94 +13,87 @@
     <!-- jQuery CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <!-- moment.js CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/locale/es-us.js"></script>
+    <!-- Moment.js CDN -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
     <!-- Firebase CDN -->
     <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
 
-    <!-- Latest compiled and minified Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
+    <!-- Materialize -->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
-    <!-- Latest compiled and minified Bootstrap JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
     <!-- Link style.css -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
 
 </head>
 
 <body>
-<!-- Container to enclose content -->
+    <!-- Materialize asks that you split the page between -->
+    <!-- header, main and footer -->
+    <!-- Container to enclose content -->
+
     <div class="container">
 
-<!-- Why not start with a jumbotron? -->
-        <div class="row jumbotron">
-            <div class="container">
-                <h1>JetBettr</h1>
-                <p>Because why not?</p>
+        <header>
+            <div id="title" class="z-depth-3">
+                <h1>Guzzle Puzzle</h1>
+                <p>Your future depends on it...</p>
             </div>
-        </div>
+        </header>
 
-        <div class="row">
-                <div class="panel panel-default col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Panel title</h3>
-                    </div>
-                    <div class="panel-body">
-                        Panel content
-                    </div>
+        <main>
+            <div class="row">
+                <div id="heading" class="col s6">
+                    <h3>An app for responsible drinking.</h3>
+                    <a href="trivia.html" class="btn btn-large waves-effect waves-red waves-ripple">
+                        <i class="fa fa-puzzle-piece"> Start</i>
+                    </a>
                 </div>
-                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
-    
-                <div class="panel panel-default col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Panel title</h3>
-                    </div>
-                    <div class="panel-body">
-                        Panel content
-                    </div>
-                </div>
-            </div>
 
-        <div class="row">
-            <div class="panel panel-default col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Panel title</h3>
-                </div>
-                <div class="panel-body">
-                    Panel content
-                </div>
-            </div>
-            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+                <div class="row">
+                    <div class="col s7">
 
-            <div class="panel panel-default col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Panel title</h3>
+                    </div>
+
+                    <div class="col s5">
+                        <form id="bar-form" onsubmit="return false">
+                            <label for="bar-input">search bar here</label>
+                            <input type="text" id="car-input">
+                            <input id="addBar" type="submit" value="Submit">
+                        </form>
+                    </div>
                 </div>
-                <div class="panel-body">
-                    Panel content
+                <br>
+                <br>
+
+                <div class="row">
+                    <div class="col s12">
+                        <div id="barResults">
+                            <div id="map" style="width: 400px; height: 400px; float:right;"></div>
+
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        </div>
 
 
-    </div>
+            <!-- Google Maps -->
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBM39ueFLAr8hJJxvSZVkuO0CBWQjqqctE&callback=initMap"></script>
 
 
+            <script src="assets/javascript/maps.js"></script>
 
-
-    </div>
-
-    <!-- Default Footer -->
-    <footer class="footer">
-        <p class="text-muted text-muted-footer text-center">
-            &copy; Copyright 2017 Slackers
-
-        </p>
-    </footer>
+            <!-- Default Footer -->
+            <footer class="footer">
+                &copy; Copyright 2017 Slackers
+            </footer>
 
 </body>
 

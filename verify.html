@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Verify</title>
+
+    <!-- Reset.css -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+
+    <!-- jQuery CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- moment.js CDN -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+    <!-- Firebase CDN -->
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+
+    <!-- Materialize -->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    <!-- Link style.css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <div class="container">
+
+        <header>
+            <div class="row">
+                <div id="title" class="z-depth-3">
+                    <h1>GuzzlePuzzle</h1>
+                    <p>Your future depends on it...</p>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <p>Do you remember your Safe Word?</p>
+            <br>
+            <p>Please enter it now to move on.</p>
+
+            <form action="" class="row">
+                <div class="input-field col s12 l6">
+                    <input type="text" id="verify" class="validate">
+                    <label for="verify">What's your Safe Word?</label>
+                    <button class="btn waves-effect waves-light blue" type="submit" id="reSubmit" name="action">Submit
+                        <i class="material-icons right">Send</i>
+                    </button>
+                </div>
+            </form>
+            <div id="compare">
+
+            </div>
+            <!-- Returns us to index for testing purposes -->
+            <a href="index.html" class="waves-effect waves-light btn green">Home</a>
+
+        </main>
+
+        <script src="assets/javascript/gp_firebase.js" /></script>
+
+        <!-- Default Footer -->
+        <footer class="footer">
+            &copy; Copyright 2017 Slackers
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

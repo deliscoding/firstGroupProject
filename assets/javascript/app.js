@@ -11,7 +11,9 @@
 // };
 
 // Pulls Trivia Database API
+
 var queryURL = "https://opentdb.com/api.php?amount=5&difficulty=easy&type=multiple";
+
 
 console.log(queryURL);
 
@@ -29,6 +31,7 @@ $.ajax({
 
         // Creating a paragraph tag with the result's rating
 
+
     
         $("#questions").append('<p> Question: ' + results[i].question + '</p>');
         $("#questions").append('<p> A: ' + results[i].incorrect_answers[2] + '</p>');
@@ -36,6 +39,7 @@ $.ajax({
         $("#questions").append('<p> C: ' + results[i].correct_answer + '</p>');
         $("#questions").append('<p> D: ' + results[i].incorrect_answers[0] + '</p>');
         
+
         $("#questions").append('<br>');
         // incorrectAnswer = results[i].incorrectAnswers[x]
         // console.log(incorrectAnswer)
@@ -54,9 +58,11 @@ $.ajax({
         // Appending the paragraph and image tag to the resultsDiv
         // $("#questions").append(p);
     }
+
 //     for (var j = 0; j < questions[i].answers.length; j++) {
 //         panel.append("<input type='radio' name='question-");
 //         // + i +
 //         // "' value='" + questions[i].answers[j] + "''>" + questions[i].answers[j]);
 //       }
 });
+
