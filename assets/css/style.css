@@ -105,3 +105,11 @@ iframe {
 #barResults {
     margin-right: 30px;
 }
+
+.list-group-item {
+padding: 10px;
+color: white;
+background: black;
+margin-top: 10px;
+width: 500px;
+}
