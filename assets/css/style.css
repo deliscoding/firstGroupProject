@@ -117,8 +117,8 @@ iframe {
 }
 
 #map {
-    height: 400px;
-  }
+    height: 500px;
+   }
 
 #list a {
     display: block;
@@ -129,9 +129,10 @@ iframe {
 }
 
 .list-group-item {
-padding: 10px;
-color: white;
-background: black;
-margin-top: 10px;
-width: 500px;
+    font-size: 16px;
+    padding: 10px;
+    color: white;
+    background: black;
+    margin-top: 10px;
+    width: 500px;
 }
