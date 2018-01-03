@@ -14,6 +14,25 @@
 
 var queryURL = "https://opentdb.com/api.php?amount=5&difficulty=easy&type=multiple";
 
+// var timer;
+
+// var game = {
+
+//     correct: 0,
+//     incorrect: 0,
+//     counter: 30,
+
+// countdown: function() {
+//     game.counter--;
+//     $("#counter-number").html(game.counter);
+//     if (game.counter === 0) {
+//       alert("TIME UP");
+//       game.done();
+//     }
+//   }
+  
+// };
+
 
 console.log(queryURL);
 
@@ -34,10 +53,20 @@ $.ajax({
 
     
         $("#questions").append('<p> Question: ' + results[i].question + '</p>');
-        $("#questions").append('<p> A: ' + results[i].incorrect_answers[2] + '</p>');
-        $("#questions").append('<p> B: ' + results[i].incorrect_answers[1] + '</p>');
-        $("#questions").append('<p> C: ' + results[i].correct_answer + '</p>');
-        $("#questions").append('<p> D: ' + results[i].incorrect_answers[0] + '</p>');
+        $("#questions").append('<p> <button>A</button>' + results[i].incorrect_answers[2] + '</p>');
+        $("#questions").append('<p> <button>B</button> ' + results[i].incorrect_answers[1] + '</p>');
+        $("#questions").append('<p> <button>C</button> ' + results[i].correct_answer + '</p>');
+        $("#questions").append('<p> <button>D</button> ' + results[i].incorrect_answers[0] + '</p>');
+
+
+        // $("#questions").append('<p> Question: ' + results[1].question + '</p>');
+        // $("#questions").append('<p> A: ' + results[1].incorrect_answers[2] + '</p>');
+        // $("#questions").append('<p> B: ' + results[1].incorrect_answers[1] + '</p>');
+        // $("#questions").append('<p> C: ' + results[1].correct_answer + '</p>');
+        // $("#questions").append('<p> D: ' + results[1].incorrect_answers[0] + '</p>');
+
+
+
         
 
         $("#questions").append('<br>');
