@@ -65,7 +65,7 @@ $(document).ready(function () {
 
                     // Setting the src attribute of the image to a property pulled off the result item
                     answerBtn.addClass("waves-effect waves-light btn answer");
-                    answerBtn.text(answers[i]);
+                    answerBtn.html(answers[i]);
                     answerBtn.attr("value", answers[i]);
 
                     $("#questions").append(answerBtn)
