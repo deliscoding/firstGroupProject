@@ -12,8 +12,13 @@ body {
     
 }
 
+header {
+    margin-right: 20px;
+}
+
 #title {
     margin: 20px;
+    width: 100%;
 }
 
 h1, h3 {
@@ -132,7 +137,7 @@ p{
 }
 
 #barResults {
-    margin-right: 30px;
+    margin: 10px;
 }
 
 .list-group-item {
