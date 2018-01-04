@@ -1,11 +1,12 @@
 // Initialize Firebase
 var config = {
-    apiKey: "AIzaSyDywo8of7_TlZKH_SlysnkRIJlyHSBUds0",
-    authDomain: "guzzle-puzzle.firebaseapp.com",
-    databaseURL: "https://guzzle-puzzle.firebaseio.com",
-    projectId: "guzzle-puzzle",
-    storageBucket: "guzzle-puzzle.appspot.com",
-    messagingSenderId: "355498500330"
+    apiKey: "AIzaSyDohsc-Pi_H2B51hXJq1nia2YwRvC8feqM",
+    authDomain: "guzzlepuzzle-d8507.firebaseapp.com",
+    databaseURL: "https://guzzlepuzzle-d8507.firebaseio.com",
+    projectId: "guzzlepuzzle-d8507",
+    storageBucket: "guzzlepuzzle-d8507.appspot.com",
+    messagingSenderId: "859175233858"
+
   };
   firebase.initializeApp(config);
 
@@ -26,6 +27,31 @@ firebase.auth().onAuthStateChanged(function(user) {
      
 var database = firebase.database();
 var fuid = localStorage.getItem("gpfuid");
+
+// All of our connections will be stored in this directory.
+var connectionsRef = database.ref("/connections");
+
+// Every time the client's connection state changes (connected=true disconnected=false) the boolean value will be updated
+var connectedRef = database.ref(".info/connected");
+connectedRef.on("value", function(snap) {
+
+    // If they are connected..
+    if (snap.val()) {
+  
+      // Add user to the connections list.
+      var conn = connectionsRef.push(true);
+      // Remove user from the connection list when they disconnect.
+      conn.onDisconnect().remove();
+    }
+  });
+  
+  // When first loaded or when the connections list changes...
+  connectionsRef.on("value", function(snap) {
+  
+    // Display the viewer count in the html.
+    // The number of online users is the number of children in the connections list.
+    $("#connected-viewers").text(snap.numChildren());
+  });
  
  
 // Not sure yet if a logout is going to be used/needed but keeping code for now
@@ -33,71 +59,3 @@ var fuid = localStorage.getItem("gpfuid");
 //     firebase.auth().signOut();
 //     $(#quit).on("click", function(logOut));
  
-// This is the submit button tied to the govna page
-$("#submit").on("click", function (event) {
-    console.log("Submit btn clicked")
-    event.preventDefault();
-    var safeWord = $("#safeWord").val().trim();
-    console.log(safeWord);
- 
-    guzzPuzz = {
-        safeWord: safeWord,
-    }
- 
-    // push guzzPuzz to firebase
-    database.ref().child("users/" + fuid).set(guzzPuzz);
- 
-    // request snap of firebase
-    var userRef = database.ref("users/" + fuid);
-    userRef.on("value", function (snap) {
- 
-        // stores safeWord as userWord
-        var userWord = snap.val().safeWord;
-         
-        var p = $("<p>");
-        p.append("You chose: " + userWord);
-        $("#userWord").append(p)
- 
-    })
- 
-})
- 
-// This is the reSubmit button tied to the verify pageXOffset.
-$("#reSubmit").on("click", function (event) {
-    console.log("reSubmit btn clicked")
-    event.preventDefault();
-    var verify = $("#verify").val().trim();
-    console.log(verify);
- 
-    guzzPuzz = {
-        safeWord: safeWord,
-        verify: verify,
-    }
- 
-    // push guzzPuzz to firebase
-    database.ref().child("users/" + fuid).set(guzzPuzz);
-    // database.ref().set(verify);
- 
-    // request snap of firebase
-    var userRef = database.ref("users/" + fuid);
-    userRef.on("value", function (snap) {
- 
-        // stores safeWord as userWord
-        var userWord = snap.val().safeWord;
-         
-       if (verify == userWord) {
-        var p = $("<p>");
-        p.append("You entered: " + verify + "your Safe Word was " + userWord);
-        p.append("<p> Great. Press Next to Proceed </p>");
-        $("#compare").append(p);
-       }
-       else {
-        var p = $("<p>");
-        p.append("You entered: " + verify + "your Safe Word was " + userWord);
-        p.append("<p> It's probably time to go home. </p>");
-        $("#compare").append(p);
-       }
- 
-    })
- 
-})
