@@ -12,8 +12,13 @@ body {
     
 }
 
+header {
+    margin-right: 20px;
+}
+
 #title {
     margin: 20px;
+    width: 100%;
 }
 
 h1, h3 {
@@ -103,7 +108,14 @@ p{
     color: white;
 }
 
-iframe {
+.question {
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
+    font-size: 30px;
+    background:rgba(200, 130, 130, 0.7);
+    border-radius: 25px;
+    border: 2px solid black;
+    padding: 10px;
+    margin: 10px;
 }
 
 .footer {
@@ -125,7 +137,7 @@ iframe {
 }
 
 #barResults {
-    margin-right: 30px;
+    margin: 10px;
 }
 
 .list-group-item {
@@ -135,4 +147,8 @@ iframe {
     background: black;
     margin-top: 10px;
     width: 500px;
+}
+
+.next {
+    background: blue;
 }

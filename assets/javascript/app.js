@@ -1,89 +1,114 @@
 // LET'S GET WEIRD
 
-// Pulls Trivia Database API
+// Document ready function executes once the page is fully loaded.
+$(document).ready(function () {
 
-var queryURL = "https://opentdb.com/api.php?amount=5&difficulty=easy&type=multiple";
-
-
-// var timer;
-
-// var game = {
-
-//     correct: 0,
-//     incorrect: 0,
-//     counter: 30,
-
-// countdown: function() {
-//     game.counter--;
-//     $("#counter-number").html(game.counter);
-//     if (game.counter === 0) {
-//       alert("TIME UP");
-//       game.done();
-//     }
-//   }
-  
-// };
+    var newQuestion;
+    var answers = [];
+    var answerUnsort = [];
+    var correctAnswer;
+    var correctAnswers = 0;
+    var wrongAnswers = 0;
+    var unAnswered = 0;
 
 
+    // When a button is clicked we will begin the trivia and run the AJAX call to pull questions
+    $(document).on("click", "#start", function () {
+        // Pulls Trivia Database API
+        var queryURL = "https://opentdb.com/api.php?amount=1&difficulty=easy&type=multiple";
 
-// Console log the queryURL
+        // Console log the queryURL
+        console.log("queryUrl: " + queryURL);
 
-console.log(queryURL);
+        $.ajax({
+            url: queryURL,
+            method: "GET"
 
-$.ajax({
-    url: queryURL,
-    method: "GET"
+        }).done(function (response) {
+            console.log(response);
 
-}).done(function (response) {
-    console.log(response);
+            var results = response.results;
+            console.log(results);
 
-    var results = response.results;
-    console.log(results);
+            for (var i = 0; i < results.length; i++) {
 
-    for (var i = 0; i < results.length; i++) {
+                // Creating a paragraph tag with the results
+                // $("#questions").append('<p> Question: ' + results[i].question + '</p>');
+                // $("#questions").append('<p> <button>A</button>' + results[i].incorrect_answers[2] + '</p>');
+                // $("#questions").append('<p> <button>B</button> ' + results[i].incorrect_answers[1] + '</p>');
+                // $("#questions").append('<p> <button>C</button> ' + results[i].correct_answer + '</p>');
+                // $("#questions").append('<p> <button>D</button> ' + results[i].incorrect_answers[0] + '</p>');
 
-        // Creating a paragraph tag with the results
-    
-        $("#questions").append('<p> Question: ' + results[i].question + '</p>');
-        $("#questions").append('<p> <button>A</button>' + results[i].incorrect_answers[2] + '</p>');
-        $("#questions").append('<p> <button>B</button> ' + results[i].incorrect_answers[1] + '</p>');
-        $("#questions").append('<p> <button>C</button> ' + results[i].correct_answer + '</p>');
-        $("#questions").append('<p> <button>D</button> ' + results[i].incorrect_answers[0] + '</p>');
+                // $("#questions").append('<br>');
 
+                // Storing results to new variables for manipulation
+                newQuestion = results[i].question;
+                correctAnswer = results[i].correct_answer;
+                answers.push(results[i].incorrect_answers[0]);
+                answers.push(results[i].incorrect_answers[1]);
+                answers.push(results[i].incorrect_answers[2]);
+                answers.push(results[i].correct_answer);
 
-        // $("#questions").append('<p> Question: ' + results[1].question + '</p>');
-        // $("#questions").append('<p> A: ' + results[1].incorrect_answers[2] + '</p>');
-        // $("#questions").append('<p> B: ' + results[1].incorrect_answers[1] + '</p>');
-        // $("#questions").append('<p> C: ' + results[1].correct_answer + '</p>');
-        // $("#questions").append('<p> D: ' + results[1].incorrect_answers[0] + '</p>');
+                // console log for debugging
+                console.log("Question: " + newQuestion);
+                console.log("Answers: " + answers);
+                console.log("Correct Answer: " + correctAnswer);
 
+                var questionDiv = $("<div>");
+                questionDiv.addClass("question");
+                questionDiv.html(newQuestion);
 
+                $("#questions").append(questionDiv);
 
-        
+                for (var i = 0; i < answers.length; i++) {
+                    var answerBtn = $("<div>");
 
-        $("#questions").append('<br>');
-        // incorrectAnswer = results[i].incorrectAnswers[x]
-        // console.log(incorrectAnswer)
+                    // Setting the src attribute of the image to a property pulled off the result item
+                    answerBtn.addClass("waves-effect waves-light btn answer");
+                    answerBtn.text(answers[i]);
+                    answerBtn.attr("value", answers[i]);
 
-        // for (var x = 0; i < incorrectAnswer.length; x++) {
+                    $("#questions").append(answerBtn)
+                }
 
-        //     $("#questions").append('<p> B: ' + incorrectAnswer[x] + '</p>')
-        //     p.text("C: " + incorrectAnswer[x])
-        //     p.text("D: " + incorrectAnswer[x])
-        // }
+                $(document).on("click", ".answer", function () {
+                    console.log("Button Clicked");
+                    var userAnswer = $(this).attr("value");
+                    console.log(userAnswer);
 
+                    if (userAnswer == correctAnswer) {
+                        console.log("Correct Answer!")
+                        correctAnswers++;
+                        console.log("Correct Answers: " + correctAnswers);
 
-        // Setting the src attribute of the image to a property pulled off the result item
-        // p.addClass("trivia");
+                        // Creates a new button called keepPlay...
+                        var keepPlay = $("<a>");
 
-        // Appending the paragraph and image tag to the resultsDiv
-        // $("#questions").append(p);
-    }
+                        keepPlay.addClass("waves-effect waves-light btn next");
+                        keepPlay.text("Next");
+                        keepPlay.attr("href", "bar_page.html");
+                        // ...which links back to bar_page.html
+                        $("#questions").append(keepPlay)
 
-//     for (var j = 0; j < questions[i].answers.length; j++) {
-//         panel.append("<input type='radio' name='question-");
-//         // + i +
-//         // "' value='" + questions[i].answers[j] + "''>" + questions[i].answers[j]);
-//       }
-});
+                    }
+                    else {
+                        console.log("Wrong Answer!")
+                        wrongAnswers++;
+                        console.log("Wrong Answers: " + wrongAnswers);
 
+                        // Creates a new button called go home...
+                        var goHome = $("<a>");
+
+                        goHome.addClass("waves-effect waves-light btn next");
+                        goHome.text("Next");
+                        goHome.attr("href", "uber_fail.html");
+                        // ...which links to uber_fail.html
+                        $("#questions").append(goHome)
+                    }
+
+                })
+            }
+
+        })
+    })
+})
