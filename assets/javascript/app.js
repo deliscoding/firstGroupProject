@@ -49,6 +49,10 @@ $(document).ready(function () {
                 answers.push(results[i].incorrect_answers[2]);
                 answers.push(results[i].correct_answer);
 
+                answers = answers.filter(function (item, index, inputArray) {
+                    return inputArray.indexOf(item) == index;
+                });
+
                 // console log for debugging
                 console.log("Question: " + newQuestion);
                 console.log("Answers: " + answers);
